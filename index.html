@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人社保计算软件-Web版</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function calc(){
+            sal = document.getElementById("salary").value;
+            console.log(sal);
+            salnum= parseInt(sal);
+            ylgr = salnum * 0.08;
+            ylgs = salnum * 0.2;
+            ylr = salnum * 0.02;
+            yls = salnum * 0.06;
+            syr = salnum * 0.005;
+            syg = salnum * 0.015;
+            // ylr = salnum * 0.02;
+            gs = salnum * 0.005;
+            // document.getElementById("ylr").innerText=ylr;
+            // syr = salnum * 0.005;
+            syx = salnum * 0.008;
+            // document.getElementById("yls").innerText=syg;
+            ggr = salnum * 0.12;
+            ggg = salnum * 0.12;
+            // 个人合计
+            gnum = ylgr + ylr + syr + ggr;
+
+            //公司
+            snum = ylgs + yls + syg + gs + syx + ggg;
+
+
+            // 总和
+            sum = gnum + snum;
+            document.getElementById("ylgr").innerText=ylgr;
+            document.getElementById("ylgs").innerText=ylgs;
+            document.getElementById("ylr").innerText=ylr;
+            document.getElementById("yls").innerText=yls;
+            document.getElementById("syr").innerText=syr;
+            document.getElementById("syg").innerText=syg;
+            document.getElementById("gs").innerText=gs;
+            document.getElementById("syx").innerText=syx;
+            document.getElementById("ggr").innerText=ggr;
+            document.getElementById("ggg").innerText=ggg;
+
+            document.getElementById("gnum").innerText=gnum;
+            document.getElementById("snum").innerText=snum;
+            document.getElementById("sum").innerText=sum;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>社保计算软件-jys</h2>
+        <table class="table table-bordered table-center">
+            <tr>
+                <td>工资</td>
+                <td colspan="3">
+                    <input class="form-centrol" type="text" id="salary" placeholder="请输入您的工资"></td>
+                <td><button onclick="calc()" class="btn btn-danger btn-block">计算</button></td>
+            </tr>
+            <tr class="bg-primary">
+                <td>险种</td>
+                <td>个人%</td>
+                <td>个人</td>
+                <td>公司%</td>
+                <td>公司</td>
+            </tr>
+            <tr>
+                <td>养老</td>
+                <td>8%</td>
+                <td id="ylgr"></td>
+                <td>20%</td>
+                <td id="ylgs"></td>
+            </tr>
+            <tr>
+                <td>医疗</td>
+                <td>2%</td>
+                <td id="ylr"></td>
+                <td>6%</td>
+                <td id="yls"></td>
+            </tr>
+            <tr>
+                <td>失业保险</td>
+                <td>0.5%</td>
+                <td id="syr"></td>
+                <td>1.5%</td>
+                <td id="syg"></td>
+            </tr>
+            <tr>
+                <td>工伤</td>
+                <td></td>
+                <td></td>
+                <td>0.5%</td>
+                <td id="gs"></td>
+            </tr>
+            <tr>
+                <td>生育险</td>
+                <td></td>
+                <td></td>
+                <td>0.8%</td>
+                <td id="syx"></td>
+            </tr>
+            <tr>
+                <td>公积金</td>
+                <td>12%</td>
+                <td id="ggr"></td>
+                <td>12%</td>
+                <td id="ggg"></td>
+            </tr>
+            <tr>
+                <td>合计</td>
+                <td>个人合计</td>
+                <td id="gnum"></td>
+                <td>公司合计</td>
+                <td id="snum"></td>
+            </tr>
+            <tr>
+                <td>总额</td>
+                <td id="sum" colspan="4"></td>
+
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+</html>
